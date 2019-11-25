@@ -1,0 +1,93 @@
+<div class="jumbotron-fluid search-control" >
+
+    
+        
+    <nav class="navbar navbar-expand-md navbar-dark  fixed-top transparent">
+        
+        <div class="container">
+
+            <img src="" alt="">
+            
+          
+            <a href="{% url 'home'%}"class="nav-item nav-link" class="navbar-brand">Home</a>&nbsp;
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon">
+
+
+                </span>
+            </button>
+          
+                <div class="navbar-nav mr-auto">
+                </div>
+
+              
+
+                        <a href="#" data-toggle="modal" data-target="#sidebarModal"><i class="large material-icons">insert_chart</i></a>
+
+
+                        {% if user.is_authenticated %}
+                         
+    
+                        {% else %}
+                        <a href="{% url 'login' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Login</a>
+                        <a href="{% url 'register' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Register</a>
+    
+                        {% endif %}
+                     
+
+
+
+                
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container demo">
+        <div class="modal left fade menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog position-fixed m-auto" role="document">
+                <div class="modal-content h-100">
+                    <div class="modal-body p-3" style="background-color: black;">
+                        <div class="nav flex-column" >
+                           
+                                    <form role="search" action="{% url 'search_results' %}" class="form-inline">
+
+
+
+                                            <input type="text" class="form-control" required placeholder="Search project" name="title"
+                                                style="background-color: rgb(243, 241, 236);">
+                            
+                                            <button type="submit" class="btn blue-gradient btn-rounded btn-sm my-0">Search</button>
+                            
+                            
+                            
+                                        </form>
+
+                                                {% if user.is_authenticated %}
+
+                    <a href="{% url 'logout' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">logout</a>
+                    <a href="{% url 'post-create' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">Add Post</a>
+                    <a id="#37474F" href="{% url 'profile' %}" class="nav-item nav-link "
+                        style="color: rgb(187, 35, 35);">Update Profile</a>
+
+                      
+                     
+
+                    {% else %}
+                    
+
+                    {% endif %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

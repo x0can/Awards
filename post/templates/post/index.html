@@ -1,0 +1,151 @@
+{% extends 'post/base.html' %}
+
+{% block content %}
+
+{{block.super}}
+
+
+
+
+
+
+
+        
+<div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel"  class="overflow-auto">
+  
+
+      
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+          <!--First slide-->
+          <div class="carousel-item active">
+            
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(141).jpg" alt="First slide">
+          </div>
+          <!--/First slide-->
+          <!--Second slide-->
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(136).jpg" alt="Second slide">
+          </div>
+          <!--/Second slide-->
+          <!--Third slide-->
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(137).jpg" alt="Third slide">
+          </div>
+          <!--/Third slide-->
+        </div>
+        <!-- /.Slides
+<div class="jumbotron" style="opacity: 0.01;">
+
+</div> -->
+        <!--/.Controls-->
+      </div><br>
+        
+        
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" style="background-color: rgb(243, 242, 240);">
+        
+<div class="card-columns ">
+
+
+
+
+        {% for post in post %}
+
+    <div class="card">
+      
+            <div class="view overlay zoom">
+                    <img src="{{post.landing_page.url}}" class="img-fluid " alt="zoom">
+                    <div class="mask flex-center rgba-stylish-light">
+                       
+
+                        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                            <div>
+                          
+                              <h5 class="pink-text"><i class="fas fa-chart-pie"></i> <a href="{% url 'post-review' post.id %}">Vote</a></h5>
+                              <h3 class="card-title pt-2"><strong>{{post.title}}</strong></h3>
+                              <p>{{post.description}}</p>
+                              <a class="btn btn-pink" href="{% url 'post-detail' post.pk  %}"><i class="fas fa-clone left"></i> View project</a>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                <hr> <br><br>
+
+                <div class="card-body">
+                    <article class="media content-section" style="margin-top: -20%;">
+                        <img width="" height="2" src="{{post.user.profile.image.url}}" class="rounded-circle article-img"  alt="">
+                        <div class="media-body">
+                            <div class="article-metadata">
+                                {% if current_user == post.user %}
+                                <h2 class="mr-2" style="font-size: large;"><a href="{% url 'post-detail' post.id %}">{{ post.user }}</a></h2>
+                                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                                {% endif %}
+                                {% for comment in post.review_set.all %}
+                  
+
+                    <h5 class="card-title">{{comment.user}}</h5>
+                    overall rating:{% if comment%}
+                      {{comment.total}}%
+
+
+                    {% endif %}
+                    <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_date }}</h6>
+
+                    {% empty %}
+
+
+                    <p>No rating yet :(</p>
+    
+                    {% endfor %}
+    
+                            </div>
+                
+                
+                            <!-- make this a dropdown or something -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                        </div>
+                    </article>
+                  
+                                  </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+              
+              <!-- Hoverable -->
+             
+
+  
+ 
+
+
+
+
+
+
+  {% endblock %}
