@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms', 
     'post.apps.PostConfig',
-
-
+    'rest_framework',
+    'rest_framework.authtoken',
     'multiselectfield',
 
 ]
@@ -75,6 +75,23 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Awards.wsgi.application'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':(
+        
+        'rest_framework.permissions.IsAuthenticated',
+        
+        ),
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework_xml.renderers.XMLRenderer'
+    ]   
+
+}
+
+
 
 
 # Database
