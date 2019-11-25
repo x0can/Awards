@@ -1,27 +1,31 @@
-{% extends 'users/base.html' %}
+{% extends 'post/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="jumbotron" style="background-color: rgb(243, 241, 236);">
+<div class="card-columns" >
 
 
-    <div class="content-section" style="background-color: rgb(243, 241, 236);">
-        <form action="" method="POST" style="background-color: rgb(243, 241, 236);">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info " type="submit">Sign up</button>
+ <div class="card">
 
+        <div class="content-section" style="background-color: rgb(243, 241, 236);">
+                <form action="" method="POST" style="background-color: rgb(243, 241, 236);">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Join Today</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info " type="submit">Sign up</button>
+        
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">Already have an Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
+        
+                </div>
+        
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">Already have an Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a></small>
 
-        </div>
-
-    </div>
+ </div>
 </div>
 
 {% endblock %}
