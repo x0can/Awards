@@ -19,11 +19,27 @@ from django.contrib.auth import views as auth_views
 from users import views as user_views
 from post import views as post_views
 from django.conf import settings
+from rest_framework import routers
+from post.views import * 
 from django.conf.urls.static import static 
+
+
+
+router = routers.DefaultRouter()
+router.register('post',PostViewSet) 
+router.register('profile',ProfileViewSet)
+router.register('review',ReviewViewSet)
+
+
+
 
 urlpatterns = [
     path('', post_views.index,name ='home'),
     path('admin/', admin.site.urls),
+    path('',include(router.urls)),
+
+
+
 
     path('register/',user_views.register,name = 'register'),
     path('login/',auth_views.LoginView.as_view(template_name = 'users/login.html'),name = 'login'),
