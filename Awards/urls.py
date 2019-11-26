@@ -24,9 +24,12 @@ from post.views import *
 from django.conf.urls.static import static 
 
 
+post_list = PostViewSet.as_view({'get': 'list'})
+post_list = PostViewSet.as_view({'get': 'retrieve'})
+
 
 router = routers.DefaultRouter()
-router.register('post',PostViewSet) 
+router.register('posted',PostViewSet) 
 router.register('profile',ProfileViewSet)
 router.register('review',ReviewViewSet)
 
@@ -38,6 +41,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
 
+    path(r'^ratings/', include('star_ratings.urls',namespace='ratings')),
 
 
 
@@ -46,7 +50,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name = 'users/logout.html'),name = 'logout'),
     path('profile/',user_views.profile,name = 'profile'),
 
-
+ 
 
     path('password-reset/',auth_views.PasswordResetView.as_view(template_name = 'users/password_reset.html'),name = 'password_reset'),
 
