@@ -6,7 +6,7 @@
 <div class = 'card-columns'>
         <div class="card">
             <div class="content-section">
-                <form class="text-center border border-light p-5" action="{% url 'login' %}" method="POST" >
+                <form class="text-center p-5" action="{% url 'login' %}" method="POST" >
                     {% csrf_token %}
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4" class="h4 mb-4">Login</legend>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <button class="btn btn-outline-info " type="submit">Login</button>
                         <small class="text-muted" ml-2> 
-                            <a href="{% url 'password_reset'%}"> Forgot Password?</a>
+                            <a href="{% url 'password_reset' %}"> Forgot Password?</a>
                         </small>
                     </div>
                 </form>

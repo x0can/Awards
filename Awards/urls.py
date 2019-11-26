@@ -30,7 +30,7 @@ post_list = PostViewSet.as_view({'get': 'retrieve'})
 
 router = routers.DefaultRouter()
 router.register('posted',PostViewSet) 
-router.register('profile',ProfileViewSet)
+router.register('prof',ProfileViewSet)
 router.register('review',ReviewViewSet)
 
 
