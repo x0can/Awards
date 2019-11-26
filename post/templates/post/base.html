@@ -4,6 +4,8 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    
 
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144351462-1"></script>
@@ -68,6 +70,8 @@
     {%endblock%}
 
     {% block scripts %}
+
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
