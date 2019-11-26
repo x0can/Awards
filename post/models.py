@@ -8,6 +8,7 @@ from django_countries.fields import CountryField
 from multiselectfield import MultiSelectField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from math import *
+# from star_ratings.models import Rating
 
 
 
@@ -42,7 +43,7 @@ class Post(models.Model):
     title = models.CharField(max_length = 30)
     live_link = models.URLField()
     description = models.TextField()
-    country = CountryField(multiple = True)   
+    country = CountryField()   
 
     languages = MultiSelectField(choices= My_choices)
 
@@ -82,8 +83,8 @@ class Post(models.Model):
 
 class Review(models.Model):
 
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    post = models.ForeignKey(Post,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,to_field=None)
+    post = models.ForeignKey(Post,on_delete=models.CASCADE,to_field=None)
     design = models.IntegerField(choices=CHOICES,default=0)
     usability= models.IntegerField(choices=CHOICES,default=0)
     content =  models.IntegerField(choices=CHOICES,default=0)
