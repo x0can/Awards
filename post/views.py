@@ -11,13 +11,20 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import TemplateHTMLRenderer
 from .forms import *
+import random
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def index(request):
     post = Post.objects.all()
+    posts = post[::-1]
+    landing = random.randint(0,len(post)-1)
+    random_post = posts[landing]
 
-    return render(request, 'post/index.html',{'post':post})
+    # print(post[0].country[0].country)
+
+    return render(request, 'post/index.html',{'post':post,'random_post':random_post})
 
 
 
@@ -31,6 +38,7 @@ def index(request):
 class PostDetailView(DetailView):
     model = Post
     
+
 
 
 class PostCreateView(CreateView):
@@ -51,6 +59,12 @@ class PostCreateView(CreateView):
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    authentication_classes = (TokenAuthentication,)
+
+    permission_classes = (IsAuthenticated,)
+
+    
+    
     # @action(detail = True,methods=['POST'])
     # def rate_post(self,request,pk=None):
       
@@ -77,7 +91,8 @@ class ProfileViewSet(viewsets.ModelViewSet):
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    # authentication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
 
 
@@ -88,6 +103,7 @@ def rate(request,pk):
     post = Post.objects.get(pk=pk)
     review = Review.get_reviews(post.id)
     form = ReviewForm(request.POST)
+ 
     if request.method == 'POST':
         if form.is_valid:
             review = form.save(commit=False)
@@ -104,12 +120,12 @@ def rate(request,pk):
 
 
 
-
+@login_required
 def search_results(request):
     if 'title' in request.GET and request.GET['title']:
         title = request.GET.get("title")
         searched_user = Post.get_post(title) 
-        message = f'{title}'
+        message = f'No project found for the search term: {title}'
         return render (request,'post/search.html',{"message":message,"post":searched_user})
 
     else:
