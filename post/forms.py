@@ -5,6 +5,6 @@ from django import forms
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ('__all__')
+        fields = ['design','usability','content']
 
 
