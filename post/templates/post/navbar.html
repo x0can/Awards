@@ -1,119 +1,121 @@
-<div class="jumbotron-fluid search-control" >
+<div class="container">
+        <div class="" >
 
     
         
-    <nav class="navbar navbar-expand-md navbar-dark  fixed-top transparent">
-        
-        <div class="container">
-
-            <img src="" alt="">
+                <nav class="navbar navbar-expand-md navbar-dark  fixed-top transparent">
+                    
+                    <div class="container">
             
-          
-            <a href="{% url 'home'%}"class="nav-item nav-link" class="navbar-brand">Home</a>&nbsp;
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="navbar-toggler-icon">
-
-
-                </span>
-            </button>
-          
-                <div class="navbar-nav mr-auto">
-                </div>
-
-              
-
-
-
-                        {% if user.is_authenticated %}
-                         
-    
-                        {% else %}
-                        <a href="{% url 'login' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Login</a>
-                        <a href="{% url 'register' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Register</a>
-    
-                        {% endif %}
-                     
-
-
-
-                
-            </div>
-        </div>
-    </nav>
-
-
-
-
-
-    <div class="container demo">
-        <div class="modal left fade menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog position-fixed m-auto" role="document">
-                <div class="modal-content h-100">
-                    <div class="modal-body p-3" style="background-color: black;">
-                        <div class="nav flex-column" >
-                           
-                                    <form role="search" action="{% url 'search_results' %}" class="form-inline">
-
-
-
-                                            <input type="text" class="form-control" required placeholder="Search project" name="title"
-                                                style="background-color: rgb(243, 241, 236);">
-                            
-                                            <button type="submit" class="btn blue-gradient btn-rounded btn-sm my-0">Search</button>
-                            
-                            
-                            
-                                        </form>
-
-                                                {% if user.is_authenticated %}
-
-                    <a href="{% url 'logout' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">logout</a>
-                    <a href="{% url 'post-create' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">Add Post</a>
-                    
-                    <a id="#37474F" href="{% url 'profile' %}" class="nav-item nav-link "
-                        style="color: rgb(187, 35, 35);">Update Profile</a>
-
+                        <img src="" alt="">
+                        
                       
-                     
-
-                    {% else %}
-                    
-
-                    {% endif %}
+                        <a href="{% url 'home'%}"class="nav-item nav-link" class="navbar-brand">Home</a>&nbsp;
+            
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="navbar-toggler-icon">
+            
+            
+                            </span>
+                        </button>
+                      
+                            <div class="navbar-nav mr-auto">
+                            </div>
+            
+                          
+            
+            
+            
+                                    {% if user.is_authenticated %}
+                                     
+                
+                                    {% else %}
+                                    <a href="{% url 'login' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Login</a>
+                                    <a href="{% url 'register' %}" class="nav-item nav-link" style="color: rgb(150, 46, 46);">Register</a>
+                
+                                    {% endif %}
+                                 
+            
+            
+            
+                            
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </nav>
+            
+            
+            
+            
+            
+                <div class="container demo">
+                    <div class="modal left fade menu" id="sidebarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog position-fixed m-auto" role="document">
+                            <div class="modal-content h-100">
+                                <div class="modal-body p-3" style="background-color: black;">
+                                    <div class="nav flex-column" >
+                                       
+                                                <form role="search" action="{% url 'search_results' %}" class="form-inline">
+            
+            
+            
+                                                        <input type="text" class="form-control" required placeholder="Search project" name="title"
+                                                            style="background-color: rgb(243, 241, 236);">
+                                        
+                                                        <button type="submit" class="btn blue-gradient btn-rounded btn-sm my-0">Search</button>
+                                        
+                                        
+                                        
+                                                    </form>
+            
+                                                            {% if user.is_authenticated %}
+            
+                                <a href="{% url 'logout' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">logout</a>
+                                <a href="{% url 'post-create' %}" class="nav-item nav-link" style="color: rgb(187, 35, 35);">Add Post</a>
+                                
+                                <a id="#37474F" href="{% url 'profile' %}" class="nav-item nav-link "
+                                    style="color: rgb(187, 35, 35);">Update Profile</a>
+            
+                                  
+                                 
+            
+                                {% else %}
+                                
+            
+                                {% endif %}
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            
+            
+            
+            
+            
+            
+            {% if user.is_authenticated %}
+            
+            <nav class="navbar navbar-expand-lg navbar fixed-top navbar-light bg-light" style="margin-top: 4%;">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                   
+                    <a href="#" data-toggle="modal" data-target="#sidebarModal"><i class="large material-icons">insert_chart_Browse</i></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+                  
+                    <form class="form-inline" action="{% url 'search_results' %}">
+                      <input class="form-control mr-sm-2" type="search" required placeholder="Search" name="title" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                 
+                </div>
+              </nav>
+            
+              {% endif %}
 </div>
-
-
-
-
-
-
-{% if user.is_authenticated %}
-
-<nav class="navbar navbar-expand-lg navbar fixed-top navbar-light bg-light" style="margin-top: 4%;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-       
-        <a href="#" data-toggle="modal" data-target="#sidebarModal"><i class="large material-icons">insert_chart_Browse</i></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-      
-        <form class="form-inline" action="{% url 'search_results' %}">
-          <input class="form-control mr-sm-2" type="search" required placeholder="Search" name="title" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-     
-    </div>
-  </nav>
-
-  {% endif %}
