@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Awards.wsgi.application'
 
 STAR_RATINGS_RERATE = False
 STAR_RATINGS_RANGE = 10
-STAR_RATINGS_ANONYMOUS = False
+STAR_RATINGS_ANONYMOUS = True
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
