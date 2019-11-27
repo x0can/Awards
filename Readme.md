@@ -3,8 +3,7 @@
 >[Alex-MWaura](https://awards21.herokuapp.com/)  
   
 # Description  
-This is a clone of  Instagram where people share their  images for other users to view. 
-Users can sign up, login, view and post photos and search  other users.
+This is a website where users can post pictures of their website and its details along with the live link,users can also vote or rate upon it.
 ##  Live Link  
  Click [View Site](https://awards21.herokuapp.com/)  to visit the site
   
