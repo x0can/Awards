@@ -11,7 +11,7 @@ This is a website where users can post pictures of their website and its details
 ## User Story  
   
 * Click on icon to sign in or Register  
-* Upload a project with some of its secreen shots.
+* Upload a project with some of its screen shots.
 * Update profile 
 * View Api Endpoint
 * Search for different projects using projects title.  
